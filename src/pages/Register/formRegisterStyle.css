@@ -1,0 +1,107 @@
+.formRegister {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding-top: 10px;
+}
+
+.wrapper {
+	width: 420px;
+	background: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	color: var(--blackColor);
+	border-radius: 10px;
+	padding: 20px 40px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+}
+
+.wrapper h1 {
+	font-size: 36px;
+	text-align: center;
+	color: var(--primaryColor);
+}
+
+.wrapper .input-box {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 30px 0;
+}
+
+.input-box input {
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border: 2px solid rgba(31, 31, 31, 0.2);
+	outline: none;
+	border-radius: 40px;
+	font-size: 16px;
+	color: var(--blackColor);
+	padding: 20px 45px 20px 20px;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	-ms-border-radius: 40px;
+	-o-border-radius: 40px;
+}
+
+.input-box input::placeholder {
+	color: var(--blackColor);
+}
+
+.input-box .icon {
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 16px;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+.wrapper .remember-forgot {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14.5px;
+	margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+	accent-color: var(--blackColor);
+	margin-right: 4px;
+}
+
+.remember-forgot a {
+	color: var(--blackColor);
+	text-decoration: none;
+}
+
+.remember-forgot a:hover {
+	text-decoration: underline;
+}
+
+.wrapper Button {
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.wrapper .register-link {
+	font-size: 14.5px;
+	text-align: center;
+	margin: 20px 0 15px;
+}
+
+.register-link p a {
+	color: var(--blackColor);
+	text-decoration: none;
+	font-weight: 600;
+}
+
+.register-link p a:hover {
+	text-decoration: underline;
+}

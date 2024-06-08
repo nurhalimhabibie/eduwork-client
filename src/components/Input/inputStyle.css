@@ -1,0 +1,21 @@
+.searchInput {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px 16px;
+	gap: 10px;
+	width: 100%;
+	background: #ffffff;
+	color: var(--grey);
+	flex: none;
+	order: 0;
+	align-self: stretch;
+	flex-grow: 1;
+	border: none;
+	border-radius: 40px;
+	outline: none;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	-ms-border-radius: 40px;
+	-o-border-radius: 40px;
+}

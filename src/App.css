@@ -1,0 +1,20 @@
+/* Laptop */
+@media screen and (max-width: 1366px) {
+	html {
+		font-size: 100%;
+	}
+}
+
+/* Tablet */
+@media screen and (max-width: 884px) {
+	html {
+		font-size: 90%;
+	}
+}
+
+/* Mobile */
+@media screen and (max-width: 430px) {
+	html {
+		font-size: 70%;
+	}
+}

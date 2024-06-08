@@ -1,0 +1,14 @@
+.tagline {
+	font-weight: 500;
+	font-size: 32px;
+	line-height: 48px;
+	color: var(--primaryColor);
+}
+
+.input-group {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	filter: drop-shadow(0px 4px 20px rgba(159, 159, 159, 0.2));
+	-webkit-filter: drop-shadow(0px 4px 20px rgba(159, 159, 159, 0.2));
+}

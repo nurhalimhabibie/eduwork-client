@@ -1,0 +1,49 @@
+.category {
+	padding: 100px 0 10px;
+}
+
+.category h6 {
+	background-color: var(--primaryColor);
+	color: var(--secondaryColor);
+	border-radius: 40px;
+	padding: 10px 10px;
+	gap: 10px;
+	width: 200px;
+	text-align: center;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	-ms-border-radius: 40px;
+	-o-border-radius: 40px;
+}
+
+.category-label {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 6px 10px;
+	background: var(--secondaryColor);
+	color: var(--primaryColor);
+	transition: all ease-in 1s;
+	-webkit-transition: all ease-in 0.2s;
+	-moz-transition: all ease-in 1s;
+	-ms-transition: all ease-in 1s;
+	-o-transition: all ease-in 1s;
+}
+
+.card-category {
+	background-color: #ffffff;
+	filter: drop-shadow(0px 4px 20px rgba(159, 159, 159, 0.1));
+	-webkit-filter: drop-shadow(0px 4px 20px rgba(159, 159, 159, 0.1));
+}
+
+.card-category:hover .category-label {
+	background: var(--primaryColor);
+	color: var(--secondaryColor);
+	transition: all ease-in 0.2s;
+	cursor: pointer;
+	-webkit-transition: all ease-in 0.2s;
+	-moz-transition: all ease-in 0.2s;
+	-ms-transition: all ease-in 0.2s;
+	-o-transition: all ease-in 0.2s;
+}
