@@ -3,12 +3,14 @@ import './productStyle.css';
 import Search from '../Search/search';
 import Button from '../Button/button';
 import { getProducts } from '../../services/productService';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../features/cart/cartSlice';
 
 function Product({ selectedCategory }) {
 	const [products, setProducts] = useState([]);
 	const [searchItem, setSearchItem] = useState('');
 	const [filteredProducts, setFilteredProducts] = useState([]);
-	// const [selectedCategory, setSelectedCategory] = useState('');
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -26,7 +28,6 @@ function Product({ selectedCategory }) {
 
 	useEffect(() => {
 		const lowercasedFilter = searchItem.toLowerCase();
-		// console.log(searchItem, '29');
 		const filteredData = products.filter(
 			(product) =>
 				(product.name.toLowerCase().includes(lowercasedFilter) ||
@@ -35,6 +36,10 @@ function Product({ selectedCategory }) {
 		);
 		setFilteredProducts(filteredData);
 	}, [searchItem, products, selectedCategory]);
+
+	const handleAddToCart = (product) => {
+		dispatch(addToCart({ product, qty: 1 }));
+	};
 
 	return (
 		<section className="container" id="product">
@@ -66,7 +71,10 @@ function Product({ selectedCategory }) {
 								</div>
 								<div className="price-wraper d-flex justify-content-between align-items-center">
 									<span className="title-price">Rp.{product.price}</span>
-									<Button variants="sm-btnprimary">
+									<Button
+										variants="sm-btnprimary"
+										click={() => handleAddToCart(product)}
+									>
 										Buy <i className="bi bi-cart-plus"></i>
 									</Button>
 								</div>

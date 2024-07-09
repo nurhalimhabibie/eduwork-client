@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './pages/Home/home';
 import Login from './pages/Login/login';
 import Register from './pages/Register/register';
+import Checkout from './pages/Checkout/checkout';
 import Layout from './layouts';
 
 const routes = () => {
@@ -21,6 +22,10 @@ const routes = () => {
 				{
 					path: 'register',
 					element: <Register />,
+				},
+				{
+					path: 'checkout',
+					element: <Checkout />,
 				},
 			],
 		},

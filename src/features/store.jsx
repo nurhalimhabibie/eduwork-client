@@ -1,6 +1,21 @@
 import { configureStore } from '@reduxjs/toolkit';
-import appReducer from './appSlice';
+import authReducer from './auth/authSlice';
+import loadingReducer from './loading/loadingSlice';
+import menuReducer from './menu/menuSlice';
+import cartReducer from './cart/cartSlice';
 
-export const store = configureStore({
-	reducer: appReducer,
+const store = configureStore({
+	reducer: {
+		auth: authReducer,
+		loading: loadingReducer,
+		menu: menuReducer,
+		cart: cartReducer,
+	},
 });
+console.log('oncreate store : ', store.getState());
+
+store.subscribe(() => {
+	console.log('STORE CHANGE : ', store.getState());
+});
+
+export default store;

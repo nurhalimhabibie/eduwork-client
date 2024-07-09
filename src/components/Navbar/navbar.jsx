@@ -2,19 +2,23 @@ import React, { useEffect, useState } from 'react';
 import Button from '../Button/button';
 import './navbarStyle.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { setActiveMenu, selectActiveMenu } from '../../features/appSlice';
+import { setActiveMenu, selectActiveMenu } from '../../features/menu/menuSlice';
 import { IoCartOutline } from 'react-icons/io5';
 import { HashLink as Link } from 'react-router-hash-link';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { selectTotalItemCart } from '../../features/cart/cartSlice';
+import CartComponent from '../Modal/cartModal';
 
 const Navbar = () => {
 	const activeMenu = useSelector(selectActiveMenu);
+	const totalCartItems = useSelector(selectTotalItemCart);
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const navigate = useNavigate();
 	const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 	const [user, setUser] = useState(null);
 	const [isLoginPage, setIsLoginPage] = useState(false);
+	const [showCart, setShowCart] = useState(false);
 
 	useEffect(() => {
 		const token = localStorage.getItem('accessToken');
@@ -51,6 +55,14 @@ const Navbar = () => {
 		}
 	};
 
+	const handleShowCart = () => {
+		setShowCart(true);
+	};
+
+	const handleCloseCart = () => {
+		setShowCart(false);
+	};
+
 	return (
 		<nav className="navbar navbar-expand-lg fixed-top">
 			<div className="container">
@@ -63,9 +75,9 @@ const Navbar = () => {
 				</Link>
 				{isUserLoggedIn && (
 					<li className="ms-auto me-2 d-flex align-items-center d-lg-none">
-						<button className="btnIcon mx-2">
+						<button className="btnIcon mx-2" onClick={handleShowCart}>
 							<IoCartOutline className="icon-cart" />
-							<div className="nav-cart-count">0</div>
+							<div className="nav-cart-count">{totalCartItems}</div>
 						</button>
 					</li>
 				)}
@@ -124,9 +136,9 @@ const Navbar = () => {
 						)}
 						{isUserLoggedIn && (
 							<li className="d-lg-flex align-items-center d-none">
-								<button className="btnIcon mx-2">
+								<button className="btnIcon mx-2" onClick={handleShowCart}>
 									<IoCartOutline className="icon-cart" />
-									<div className="nav-cart-count">0</div>
+									<div className="nav-cart-count">{totalCartItems}</div>
 								</button>
 							</li>
 						)}
@@ -146,6 +158,7 @@ const Navbar = () => {
 					)}
 				</div>
 			</div>
+			<CartComponent show={showCart} handleClose={handleCloseCart} />
 		</nav>
 	);
 };

@@ -16,15 +16,15 @@ const Home = () => {
 	};
 
 	return (
-		<div>
-			<Navbar />
+		<>
+			{/* <Navbar /> */}
 			<Hero />
 			<CategoryCard
 				onCategorySelect={handleCategorySelect}
 				resetCategories={resetCategory}
 			/>
 			<Product selectedCategory={selectedCategory} />
-		</div>
+		</>
 	);
 };
 
