@@ -47,7 +47,7 @@ const CartComponent = ({ show, handleClose }) => {
 	const handleCheckout = async () => {
 		try {
 			await updateCartItems(cart);
-			// alert('Checkout successful');
+			handleClose();
 		} catch (error) {
 			console.error('Error during checkout:', error);
 		}
