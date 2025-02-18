@@ -7,31 +7,33 @@ import { IoCartOutline } from 'react-icons/io5';
 import { HashLink as Link } from 'react-router-hash-link';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { selectTotalItemCart } from '../../features/cart/cartSlice';
+import { selectAuth, logout } from '../../features/auth/authSlice';
 import CartComponent from '../Modal/cartModal';
 
 const Navbar = () => {
 	const activeMenu = useSelector(selectActiveMenu);
 	const totalCartItems = useSelector(selectTotalItemCart);
+	const { isLoggedIn, user } = useSelector(selectAuth);
 	const dispatch = useDispatch();
 	const location = useLocation();
 	const navigate = useNavigate();
-	const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-	const [user, setUser] = useState(null);
+	// const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+	// const [user, setUser] = useState(null);
 	const [isLoginPage, setIsLoginPage] = useState(false);
 	const [showCart, setShowCart] = useState(false);
 
-	useEffect(() => {
-		const token = localStorage.getItem('accessToken');
-		const userData = localStorage.getItem('user');
-		if (token && userData) {
-			try {
-				setIsUserLoggedIn(true);
-				setUser(JSON.parse(userData));
-			} catch (error) {
-				console.error('Error parsing user data from localStorage', error);
-			}
-		}
-	}, []);
+	// useEffect(() => {
+	// 	const token = localStorage.getItem('accessToken');
+	// 	const userData = localStorage.getItem('user');
+	// 	if (token && userData) {
+	// 		try {
+	// 			setIsUserLoggedIn(true);
+	// 			setUser(JSON.parse(userData));
+	// 		} catch (error) {
+	// 			console.error('Error parsing user data from localStorage', error);
+	// 		}
+	// 	}
+	// }, []);
 
 	useEffect(() => {
 		setIsLoginPage(
@@ -47,8 +49,9 @@ const Navbar = () => {
 		try {
 			localStorage.removeItem('accessToken');
 			localStorage.removeItem('user');
-			setIsUserLoggedIn(false);
-			setUser(null);
+			// setIsUserLoggedIn(false);
+			// setUser(null);
+			dispatch(logout());
 			navigate('/');
 		} catch (err) {
 			alert('Logout failed: ' + err.message);
@@ -73,7 +76,7 @@ const Navbar = () => {
 				>
 					<span>Store</span>ID
 				</Link>
-				{isUserLoggedIn && (
+				{isLoggedIn && (
 					<li className="ms-auto me-2 d-flex align-items-center d-lg-none">
 						<button className="btnIcon mx-2" onClick={handleShowCart}>
 							<IoCartOutline className="icon-cart" />
@@ -134,7 +137,7 @@ const Navbar = () => {
 								</li>
 							</>
 						)}
-						{isUserLoggedIn && (
+						{isLoggedIn && (
 							<li className="d-lg-flex align-items-center d-none">
 								<button className="btnIcon mx-2" onClick={handleShowCart}>
 									<IoCartOutline className="icon-cart" />
@@ -145,7 +148,7 @@ const Navbar = () => {
 					</ul>
 					{!isLoginPage && (
 						<div className="d-flex mt-lg-0 mt-5">
-							{isUserLoggedIn ? (
+							{isLoggedIn ? (
 								<Button click={handleLogout} variants="primaryBtn">
 									Logout
 								</Button>

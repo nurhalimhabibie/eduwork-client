@@ -87,7 +87,6 @@ const CartComponent = ({ show, handleClose }) => {
 			style={{ display: show ? 'block' : 'none' }}
 			tabIndex="-1"
 			aria-labelledby="cartModalLabel"
-			aria-hidden="true"
 		>
 			<div className="modal-dialog modal-dialog-centered">
 				<div className="modal-content  d-flex flex-column gap-3 p-1">
@@ -131,7 +130,7 @@ const CartComponent = ({ show, handleClose }) => {
 													style={{ maxWidth: '100px', overflow: 'hidden' }}
 												>
 													<img
-														src={`http://localhost:5000/images/products/${item.product.image_url}`}
+														src={`http://localhost:3000/images/products/${item.product.image_url}`}
 														alt={item.product.name}
 														className="w-100 h-100 object-cover"
 													/>

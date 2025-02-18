@@ -55,7 +55,7 @@ function Product({ selectedCategory }) {
 							<div className="product-card">
 								<div className="image-wraper">
 									<img
-										src={`http://localhost:5000/images/products/${product.image_url}`}
+										src={`http://localhost:3000/images/products/${product.image_url}`}
 										alt={product.name}
 										className="w-100"
 									/>

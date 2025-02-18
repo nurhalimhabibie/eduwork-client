@@ -130,7 +130,7 @@ const Checkout = () => {
 					cart.map((item) => (
 						<div key={item.product._id} className="checkout-item">
 							<img
-								src={`http://localhost:5000/images/products/${item.product.image_url}`}
+								src={`http://localhost:3000/images/products/${item.product.image_url}`}
 								alt={item.product.name}
 							/>
 							<div className="item-details">
