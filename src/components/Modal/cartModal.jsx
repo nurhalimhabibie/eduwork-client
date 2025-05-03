@@ -130,7 +130,7 @@ const CartComponent = ({ show, handleClose }) => {
 													style={{ maxWidth: '100px', overflow: 'hidden' }}
 												>
 													<img
-														src={`http://localhost:3000/images/products/${item.product.image_url}`}
+														src={`https://eduwork-server-production.up.railway.app/images/products/${item.product.image_url}`}
 														alt={item.product.name}
 														className="w-100 h-100 object-cover"
 													/>

@@ -57,7 +57,7 @@ const CategoryCard = ({ onCategorySelect, resetCategories }) => {
 							>
 								<div className="text-center card-category w-100">
 									<img
-										src={`http://localhost:3000/images/categories/${category.image_url}`}
+										src={`https://eduwork-server-production.up.railway.app/images/categories/${category.image_url}`}
 										alt={category.name}
 										className="w-100"
 									/>
